@@ -21,53 +21,6 @@
       z-index: 1;
     }
 
-    .intro-screen {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 9999;
-    }
-
-    .intro-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    .intro-button-img {
-      position: fixed;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: none;
-      border: none;
-      z-index: 10;
-      cursor: pointer;
-      animation: fadeIn 1s ease-out forwards;
-      animation-delay: 1.2s;
-    }
-
-    .next-btn-img {
-      width: 350px;
-      max-width: 90%;
-      transition: transform 0.2s ease;
-    }
-
-    .intro-button-img:hover .next-btn-img {
-      transform: scale(1.05);
-    }
-
-    @keyframes logoPop {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
-    }
 
     @keyframes fadeIn { to { opacity: 1; } }
 
@@ -288,14 +241,6 @@
 </head>
 <body>
 
-  <!-- Intro Screen -->
-  <div class="intro-screen" id="introScreen">
-    <img src="intro2.png" class="intro-bg" alt="Intro Background" />
-    <button class="intro-button-img" id="goToStart">
-      <img src="next.png" alt="Next" class="next-btn-img" />
-    </button>
-  </div>
-
   <!-- Start Screen -->
   <div class="start-screen" id="startScreen">
     <img src="logo.png" alt="GNE Logo" class="logo">
@@ -347,15 +292,10 @@
     const TOTAL_SPIN_TIME = FAST_SPIN_TIME + MID_SPIN_TIME + SNAP_TIME;
 
     window.onload = () => {
-      document.getElementById("introScreen").style.display = "flex";
-      document.getElementById("startScreen").style.display = "none";
-      document.getElementById("wheelScreen").style.display = "none";
-    };
+  document.getElementById("startScreen").style.display = "flex";
+  document.getElementById("wheelScreen").style.display = "none";
+};
 
-    document.getElementById("goToStart").onclick = () => {
-      document.getElementById("introScreen").style.display = "none";
-      document.getElementById("startScreen").style.display = "flex";
-    };
 
     document.getElementById("startButton").onclick = () => {
       document.getElementById("startScreen").style.display = "none";
